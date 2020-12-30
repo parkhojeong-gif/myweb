@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cal.html</title>
+</head>
+<body>
+    <div id="show">
+        
+    </div>
+    <script>
+        let tab = document.createElement('table');
+        let tr = document.createElement('tr');
+        let th = document.createElement('th');
+        tab.append(tr);
+        let td = document.createElement('td');
+        
+        let days = ['Sun','Mon','Tue','Wed','Thr','Fri','Sat'];
+        for(let i = 0; i < days.length; i++){
+            let th=document.createElement('th');
+            th.innerHTML=days[i]
+            tr.append(th);
+        
+        }
+        tab.append(tr);
+        tab.setAttribute('border', '1');
+        document.getElementById('show').append(tab);
+    
+        let trTag = document.createElement('tr');
+        for(let i = 1; i<= 31; i++){
+            let td = document.createElement('td');
+            td.innerHTML = i;
+            trTag.append(td);
+            if(i % 7 == 0){
+                tab.append(trTag);
+                trTag= document.createElement('tr');
+            }
+            
+
+        }
+        tab.append(trTag);
+        document.getElementById('show').append(tab);
+        
+    </script>
+</body>
+</html>

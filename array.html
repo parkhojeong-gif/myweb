@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array.html</title>
+</head>
+<body>
+    <table id="calendar_table">
+        <td id="preventMonth" colspan="1"><input type="button" id="preventMonth_Button"></td>
+        <td id="yearMonth" colspan="5">1</td>
+        <td id="nextMonth" colspan="1"><input type="button" id="nextMonth_Button"></td>
+        <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+        </tr>
+
+
+    </table>
+    <script>
+        let today = new Date();
+        todayYear = today.getFullYear();
+        todayMonth = today.getMonth()+1;
+        todayYear_Month = todayYear+"-"+todayMonth;
+        document.getElementById('yearMonth').innerHTML= todayYear_Month;
+
+        let firstDate = new Date(today.getFullYear(), today.getMonth(),1);
+        let lastDate = new Date(today.getFullYear(), today.getMonth()+1,0);
+        let day = firstDate.getDay();
+        let calendar = document.getElementById('calendar_table');
+        let week = Math.ceil(lastDate.getDate()/7)+1;
+    </script>
+</body>
+</html>
