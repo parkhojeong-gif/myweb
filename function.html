@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function.html</title>
+</head>
+<body>
+    <div id="show">
+
+    </div>
+    <script>
+        function sum(a, b){
+            return a + b;
+        }
+        let result = sum(10, 20);
+
+        function showElement(){
+            let h1 = document.createElement('h1');
+            h1.innerHTML = 'Hello';
+            return h1;
+        }
+        result = showElement();
+//요기
+function Person(name, age, hobby){
+            this.name = name;
+            this.age = age;
+            this.hobby= hobby;
+            // this.phone = phone;
+        }
+        let persons = [];
+        Person.prototype.phone = '010';
+        Person.prototype.toString = function(){
+            return this.name + ', '+this.age+', '+this.hobby+ ', '+ this.phone;
+        }
+        let p1 = new Person('Park', 20, 'sleeping');
+        let p2 = new Person('Choi', 22, 'reading');
+        persons.push(p1);
+        persons.push(p2);
+        persons.push(new Person('Kim', 25, 'game'));
+
+
+
+//요기
+        function createTable(ary){
+            // persons =>배열
+            // 이름, 나이 , 취미, 연락처
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');
+            for(let i = 0; i<ary.length; i++){
+                let trTag = document.createElement('tr')
+                let tdTag = document.createElement('td')
+                let tdTag1 = document.createElement('td')
+                table.append(trTag);             
+                    for(field in ary){
+                        trTag.append(tdTag);
+                        tdTag.innerHTML=field[i];
+                        console.log(tdTag.innerHTML=ary.field);
+                        trTag.append(tdTag1);
+                        console.log(tdTag1.innerHTML=ary.field);
+                        tdTag1.innerHTML=ary[i];
+                    }
+                
+
+        //         for(person of persons){
+        //     for(field in person){
+        //         console.log(field, '-',person[field]);
+        //     }
+        // }
+
+
+
+            }
+            console.log(table);
+            return table;
+        }
+        result = createTable(persons);
+        document.getElementById('show').append(result);
+        
+        let x = (a, b) =>{
+            return a + b;
+
+        }
+        let y = x; 
+        console.log(x(10, 15));
+        console.log(y(20, 15));
+        function findMax(a,b,c,d,e){
+            console.log(arguments);
+            let max = 0;
+            for(let i = 0 ; i < arguments.length; i++){
+                if(arguments[i] > max){
+                    max = arguments[i];
+
+                }
+            }
+            return max;
+
+        };
+result = findMax(1,5,3,7,4,2);
+console.log(result);
+        
+    </script>
+</body>
+</html>
